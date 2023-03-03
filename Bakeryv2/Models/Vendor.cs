@@ -23,5 +23,10 @@ namespace Bakeryv2.Models
     {
       _instances.Clear();
     }
+
+    public static Vendor Find(int SearchId)
+    {
+      return _instances[SearchId-1];
+    }
   }
 }
