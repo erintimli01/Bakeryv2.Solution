@@ -37,5 +37,17 @@ namespace Bakeryv2.Tests
       int result = newOrder.Id;
       Assert.AreEqual(1, result);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllOrderObjects_OrderList()
+    {
+      string name01 = "Test1";
+      string name02 = "Test2";
+      Order newOrder1 = new Order(name01);
+      Order newOrder2 = new Order(name02);
+      List<Order> newList = new List<Order> { newOrder1, newOrder2 };
+      List<Order> result = Order.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
