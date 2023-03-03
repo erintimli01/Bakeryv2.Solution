@@ -5,8 +5,8 @@ namespace Bakeryv2.Models
   public class Vendor
   {
     public string VendorName { get; set; }
-    private static List<Vendor> _instances = new List<Vendor> { };
     public int Id { get; }
+    private static List<Vendor> _instances = new List<Vendor> { };
     public Vendor(string vendorName)
     {
       VendorName = vendorName;
@@ -24,9 +24,9 @@ namespace Bakeryv2.Models
       _instances.Clear();
     }
 
-    public static Vendor Find(int SearchId)
+    public static Vendor Find(int searchId)
     {
-      return _instances[SearchId-1];
+      return _instances[searchId-1];
     }
   }
 }

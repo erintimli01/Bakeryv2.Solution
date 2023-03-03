@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Bakeryv2.Controllers
 {
-  public class VendorsController : Controllers
+  public class VendorsController : Controller
   {
     [HttpGet("/vendors")]
     public ActionResult Index()
