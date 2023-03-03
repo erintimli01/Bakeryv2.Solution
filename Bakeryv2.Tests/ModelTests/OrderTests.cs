@@ -6,8 +6,12 @@ using System;
 namespace Bakeryv2.Tests
 {
   [TestClass]
-  public class OrderTests
+  public class OrderTests : IDisposable
   {
+    public void Dispose()
+    {
+      Order.ClearAll();
+    }
 
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
@@ -23,6 +27,15 @@ namespace Bakeryv2.Tests
       Order newOrder = new Order(name);
       string result = newOrder.Name;
       Assert.AreEqual(name, result);
+    }
+
+    [TestMethod]
+    public void GetId_ReturnsOrderId_Int()
+    {
+      string name = "test order";
+      Order newOrder = new Order(name);
+      int result = newOrder.Id;
+      Assert.AreEqual(1, result);
     }
   }
 }
