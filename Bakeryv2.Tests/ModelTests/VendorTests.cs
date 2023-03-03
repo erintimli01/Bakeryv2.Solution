@@ -52,5 +52,14 @@ namespace Bakeryv2.Tests
       List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void GetId_VendorsInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      string vendorName = "test";
+      Vendor newVendor = new Vendor(vendorName);
+      int result = newVendor.Id;
+      Assert.AreEqual(1, result);
+    }
   }
 }
