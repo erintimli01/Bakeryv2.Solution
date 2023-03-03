@@ -1,11 +1,18 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectName.Models;
+using System.Collections.Generic;
+using Bakeryv2.Models;
+using System;
 
-namespace ProjectName.Tests
+namespace Bakeryv2.Tests
 {
   [TestClass]
-  public class ClassNameTests
+  public class VendorTests
   {
-    // Test methods go here
+    [TestMethod]
+    public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
+    {
+      Vendor newVendor = new Vendor("test");
+      Assert.AreEqual(typeof(Vendor), newVendor.GetType());
+    }
   }
 }
