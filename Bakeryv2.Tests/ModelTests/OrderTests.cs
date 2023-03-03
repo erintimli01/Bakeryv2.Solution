@@ -15,5 +15,14 @@ namespace Bakeryv2.Tests
       Order newOrder = new Order("test order");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
+
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
+      string name = "test order";
+      Order newOrder = new Order(name);
+      string result = newOrder.Name;
+      Assert.AreEqual(name, result);
+    }
   }
 }

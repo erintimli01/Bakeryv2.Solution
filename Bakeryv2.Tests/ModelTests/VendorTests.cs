@@ -68,7 +68,7 @@ namespace Bakeryv2.Tests
       string vendorName01 = "test";
       string vendorName02 = "test1";
       Vendor newVendor1 = new Vendor(vendorName01);
-      Vendor newVendor2 = new Vendor(vendorName01);
+      Vendor newVendor2 = new Vendor(vendorName02);
       Vendor result = Vendor.Find(2);
       Assert.AreEqual(newVendor2, result);
     }
