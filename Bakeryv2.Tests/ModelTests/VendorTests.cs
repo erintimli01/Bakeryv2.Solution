@@ -23,5 +23,17 @@ namespace Bakeryv2.Tests
     string result = newVendor.VendorName;
     Assert.AreEqual(vendorName, result);
     }
+
+    [TestMethod]
+    public void SetVendorName_SetVendorName_String()
+    {
+      string vendorName = "test2";
+      Vendor newVendor = new Vendor(vendorName);
+
+      string updatedVendorName = "test3";
+      newVendor.VendorName = updatedVendorName;
+      string result = newVendor.VendorName;
+      Assert.AreEqual(updatedVendorName, result);
+    }
   }
 }
