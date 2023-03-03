@@ -49,5 +49,16 @@ namespace Bakeryv2.Tests
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectOrder_Order()
+    {
+      string name01 = "Test1";
+      string name02 = "Test2";
+      Order newOrder1 = new Order(name01);
+      Order newOrder2 = new Order(name02);
+      Order result = Order.Find(2);
+      Assert.AreEqual(newOrder2, result);
+    }
   }
 }
