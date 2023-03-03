@@ -33,7 +33,7 @@ namespace Bakeryv2.Controllers
       return View();
     }
 
-    [HttpGet("/places/{id}")]
+    [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
       Vendor foundVendor = Vendor.Find(id);
