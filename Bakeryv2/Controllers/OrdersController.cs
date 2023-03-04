@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MusicOrganizer.Models;
+using Bakeryv2.Models;
 using System.Collections.Generic;
 
 namespace Bakeryv2.Controllers
@@ -36,7 +36,7 @@ namespace Bakeryv2.Controllers
       Order selectedOrder = Order.Find(id);
       List<Vendor> orderVendors = selectedOrder.Vendors;
       model.Add("order", selectedOrder);
-      model.Add("vendor", selectedVendors);
+      model.Add("vendor", orderVendors);
       return View(model);
     }
   }

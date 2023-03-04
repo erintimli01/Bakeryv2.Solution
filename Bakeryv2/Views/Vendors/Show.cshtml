@@ -11,14 +11,14 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <h1>Vendor Log Details: </h1>
+    <h1>Vendor details: </h1>
 
-    <h2>@Model.VendorName</h2>
-    <ul>
-    <li><strong>Name of vendor: </strong>@Model.VendorName</li>
-    </ul>
+    <h2>@Model["vendor"].VendorName</h2>
+    <h3>Order: @Model["order"].Name</h3>
 
-    <a href='/vendors/new'>Add another vendor</a>
-    <a href='/vendors'>View all vendors</a>
+
+    <a href='/orders/@Model["order"].Id/vendors/new'>Add another vendor</a>
+    <a href='/orders'>View all orders</a>
+    </h2>
   </body>
 </html>
