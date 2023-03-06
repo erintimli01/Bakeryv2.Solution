@@ -10,13 +10,16 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <h1>Add new vendor to @Model.Name</h1>
+    <h1>Add your vendor</h1>
+    <p>Add your vendor here</p>
 
-  <form action="/orders/@Model.Id/vendors" method="post">
-    <input id="orderId" name="orderId" type="hidden" value="@Model.Id">
-    <label for="vendorName">Vendor name</label>
+    <form action="/vendors" method="post">
+    <label for="vendorName">Vendor Name</label>
     <input id="vendorName" name="vendorName" type="text">
-    <button type='submit'>Add Vendor</button>
-  </form>
+    <button type="submit">Add</button>
+    </form>
+
+    <p><a href="/"></a>Home</p>
+    <p><a href="/vendors">Back to vendors</a></p>
   </body>
 </html>

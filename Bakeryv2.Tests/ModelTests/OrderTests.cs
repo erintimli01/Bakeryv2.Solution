@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Bakeryv2.Models;
 using System.Collections.Generic;
+using Bakeryv2.Models;
 using System;
 
 namespace Bakeryv2.Tests
@@ -16,49 +16,62 @@ namespace Bakeryv2.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test order");
+      Order newOrder = new Order("test");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
     [TestMethod]
-    public void GetName_ReturnsName_String()
+    public void GetOrderName_ReturnsOrderName_String()
     {
-      string name = "test order";
-      Order newOrder = new Order(name);
-      string result = newOrder.Name;
-      Assert.AreEqual(name, result);
+    string orderName = "test";
+    Order newOrder = new Order(orderName);
+    string result = newOrder.OrderName;
+    Assert.AreEqual(orderName, result);
     }
 
     [TestMethod]
-    public void GetId_ReturnsOrderId_Int()
+    public void SetOrderName_SetOrderName_String()
     {
-      string name = "test order";
-      Order newOrder = new Order(name);
-      int result = newOrder.Id;
-      Assert.AreEqual(1, result);
+      string orderName = "test2";
+      Order newOrder = new Order(orderName);
+
+      string updatedOrderName = "test3";
+      newOrder.OrderName = updatedOrderName;
+      string result = newOrder.OrderName;
+      Assert.AreEqual(updatedOrderName, result);
     }
 
     [TestMethod]
-    public void GetAll_ReturnsAllOrderObjects_OrderList()
+    public void GetAll_ReturnsOrders_OrderList()
     {
-      string name01 = "Test1";
-      string name02 = "Test2";
-      Order newOrder1 = new Order(name01);
-      Order newOrder2 = new Order(name02);
+      string orderName01 = "test";
+      string orderName02 = "test2";
+      Order newOrder1 = new Order(orderName01);
+      Order newOrder2 = new Order(orderName02);
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
+    public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      string orderName = "test";
+      Order newOrder = new Order(orderName);
+      int result = newOrder.Id;
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
     public void Find_ReturnsCorrectOrder_Order()
     {
-      string name01 = "Test1";
-      string name02 = "Test2";
-      Order newOrder1 = new Order(name01);
-      Order newOrder2 = new Order(name02);
+      string orderName01 = "test";
+      string OrderName02 = "test1";
+      Order newOrder1 = new Order(orderName01);
+      Order newOrder2 = new Order(OrderName02);
       Order result = Order.Find(2);
       Assert.AreEqual(newOrder2, result);
     }
+
   }
 }
