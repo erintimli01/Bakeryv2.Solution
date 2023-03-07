@@ -7,7 +7,7 @@ namespace Bakeryv2.Controllers
   
   public class OrdersController : Controller
   {
-    [HttpGet("/vendors/{vendorId}/orderss/new")]
+    [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
       Vendor vendor = Vendor.Find(vendorId);
