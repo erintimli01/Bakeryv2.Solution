@@ -1,20 +1,20 @@
-using Microsoft.AspNetCore.Mvc;
-using Bakeryv2.Models;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNetCore.Mvc;
+using Bakeryv2.Models;
 
-namespace Bakeryv2.Controllers
+namespace ToDoList.Controllers
 {
   public class VendorsController : Controller
   {
 
     [HttpGet("/vendors")]
     public ActionResult Index()
-      {
-        List<Vendor> allVendors = Vendor.GetAll();
-        return View(allVendors);
-      }
-    
+    {
+      List<Vendor> allVendors = Vendor.GetAll();
+      return View(allVendors);
+    }
+
     [HttpGet("/vendors/new")]
     public ActionResult New()
     {
@@ -25,12 +25,11 @@ namespace Bakeryv2.Controllers
     public ActionResult Create(string vendorName)
     {
       Vendor newVendor = new Vendor(vendorName);
-      {
-        return RedirectToAction("Index");
-      }
+      return RedirectToAction("Index");
+    }
 
     [HttpGet("/vendors/{id}")]
-    public ActionResult Show(int id);
+    public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor selectedVendor = Vendor.Find(id);
@@ -41,34 +40,17 @@ namespace Bakeryv2.Controllers
     }
 
     [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int vendorId, string orderName)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
       Order newOrder = new Order(orderName);
+      foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
       model.Add("vendor", foundVendor);
       return View("Show", model);
     }
-    }
+
   }
 }
-
-    // [HttpGet("/vendors/{id}")]
-    // public ActionResult Show(int id)
-    // {
-    //   Dictionary<string, object> model = new Dictionary<string, object>();
-    //   Vendor selectedVendor = Vendor.Find(id);
-    //   List<Order> vendorOrders = selectedVendor.Orders;
-    //   model.Add("order", selectedOrder);
-    //   model.Add("vendor", orderVendors);
-    //   return View(model);
-    // }
-      // Order order = Order.Find(orderId);
-      // Vendor vendor = Vendor.Find(vendorId);
-    // [HttpGet("/vendors/{vendorId}/orders/new")]
-    // public ActionResult New(int vendorId)
-    // {
-    //   Vendor vendor = Vendor.Find(vendorId);
-    //   return View(vendor);
-    // }
