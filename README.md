@@ -29,7 +29,7 @@ _At Pierre's Bakery you can get the best deals on fresh, delicious pastry and br
 
 ## Known Bugs
 
-* _Webpage currently doesn't work_
+* _No known bugs_
 
 
 ## License
